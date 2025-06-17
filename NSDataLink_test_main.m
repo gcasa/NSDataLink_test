@@ -5,11 +5,13 @@
 
 @interface MockSelection : NSSelection
 @end
+
 @implementation MockSelection
 @end
 
 @interface MockManager : NSDataLinkManager
 @end
+
 @implementation MockManager
 @end
 
