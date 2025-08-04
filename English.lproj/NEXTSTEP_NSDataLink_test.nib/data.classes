@@ -1,0 +1,6 @@
+"AppDelegate" = {
+    ACTIONS = {}; 
+    OUTLETS = {_imageView = id; _textView = id; }; 
+    SUPERCLASS = NSObject; 
+};
+"FirstResponder" = {ACTIONS = {}; OUTLETS = {}; SUPERCLASS = NSObject; };
