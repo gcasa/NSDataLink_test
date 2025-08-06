@@ -10,7 +10,12 @@
 
 - (void) applicationDidFinishLaunching: (NSNotification *)n
 {
+  NSSelection *selection = [NSSelection allSelection];
+  NSDataLink *dl = [[NSDataLink alloc] initLinkedToFile: @"/tmp/temp.txt"];
+
   _datalinkManager = [[NSDataLinkManager alloc] initWithDelegate: self];
+  [_datalinkManager addLink: dl at: selection];
+
   NSLog(@"called");
 }
 
@@ -45,6 +50,33 @@
 - (void) dataLinkManager: (NSDataLinkManager *)sender stopTrackingLink: (NSDataLink *)dl
 {
   NSLog(@"Stops tracking %@", dl);
+}
+
+- (void) dataLinkManagerCloseDocument: (NSDataLinkManager *)sender
+{
+  NSLog(@"Close document %@", sender);
+}
+
+- (void) dataLinkManagerDidEditLinks: (NSDataLinkManager *)sender
+{
+  NSLog(@"Did edit links %@", sender);
+}
+
+- (void) dataLinkManagerRedrawLinkOutlines: (NSDataLinkManager *)sender
+{
+  NSLog(@"Redraw link outlines %@", sender);
+}
+
+- (BOOL) dataLinkManagerTracksLinksIndividually: (NSDataLinkManager *)sender
+{
+  NSLog(@"Tracks links individually %@", sender);
+  return YES;
+}
+
+- (BOOL) importFile: (NSString *)filename at: (NSSelection *)selection
+{
+  NSLog(@"Filename %@, selection %@", filename, selection);
+  return YES;
 }
 
 @end
